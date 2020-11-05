@@ -1,12 +1,35 @@
 import {
-  TextField, InputLabel, Select, FormControl, Button,
+  TextField, InputLabel, Select, FormControl, Button, Paper, Tab, Tabs,
 } from '@material-ui/core';
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 class SiteWrapper extends Component {
   constructor(props) {
     super(props);
-    this.state = { };
+    this.state = {
+    };
+
+    this.changePage = this.changePage.bind(this);
+  }
+
+  changePage(e, newValue) {
+    const { history } = this.props;
+
+    switch (newValue) {
+      case 0:
+        history.push('/');
+        break;
+      case 1:
+        history.push('/search');
+        break;
+      case 2:
+        history.push('/tv');
+        break;
+      default:
+        history.push('/');
+        break;
+    }
   }
 
   render() {
@@ -18,8 +41,8 @@ class SiteWrapper extends Component {
 
           <section className="search">
             <form>
-              <TextField id="outlined-basic" label="Search" variant="outlined" />
-              <FormControl variant="outlined">
+              <TextField id="outlined-basic" label="Search" variant="outlined" className="search__text-field" />
+              <FormControl variant="outlined" className="search__select">
                 <InputLabel htmlFor="outlined-age-native-simple">Age</InputLabel>
                 <Select
                   native
@@ -36,14 +59,30 @@ class SiteWrapper extends Component {
                 </Select>
               </FormControl>
               <Button variant="contained" color="primary">
-                Primary
+                Search
               </Button>
             </form>
           </section>
 
-          <section className="menu">
+          <section className="content">
+            <Paper className="content__tab">
+              <Tabs
+                value={this.props.pageValue}
+                indicatorColor="primary"
+                textColor="primary"
+                variant="fullWidth"
+                onChange={this.changePage}
+              >
+                <Tab label="Movies" className="content__tab-btn" />
+                <Tab label="Search" className="content__tab-btn" />
+                <Tab label="TV Shows" className="content__tab-btn" />
+              </Tabs>
+            </Paper>
 
-            {this.props.children}
+            <div className="content__inner">
+              {this.props.children}
+            </div>
+
           </section>
 
         </div>
@@ -52,4 +91,4 @@ class SiteWrapper extends Component {
   }
 }
 
-export default SiteWrapper;
+export default withRouter(SiteWrapper);

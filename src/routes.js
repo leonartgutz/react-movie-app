@@ -1,11 +1,13 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Home from './pages/Home';
+import Movies from './pages/Movies';
+import Tv from './pages/Tv';
 
 function Routes() {
   return (
     <Switch>
-      <Route path="/" component={Home} exact />
+      <Route path="/" component={Movies} exact />
+      <Route path="/tv" component={Tv} exact />
     </Switch>
   );
 }

@@ -1,0 +1,14 @@
+.content {
+  border: 1px solid black;
+
+  &__inner {
+    @include flexGen(column, nowrap, center, center);
+    padding: 4rem 4rem;
+  }
+
+  &__tab {
+    background: #eeee !important;
+    border-radius: 0 !important;
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.44) !important;
+  }
+}

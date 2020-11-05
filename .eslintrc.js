@@ -22,5 +22,8 @@ module.exports = {
     'react/prop-types': 'off',
     'react/destructuring-assignment': 'off',
     'react/jsx-one-expression-per-line': 'off',
+    'react/no-unused-state': 'off',
+    'class-methods-use-this': 'off',
+    'react/jsx-props-no-spreading': 'off',
   },
 };
