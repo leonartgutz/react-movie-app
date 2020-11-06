@@ -28,7 +28,7 @@ class SiteWrapper extends Component {
   }
 
   async getResults(type, query, pg) {
-    const result = await api.get(`/search/${type}?api_key=5879e3f1372f127febbcff25791a647c&language=en-US&page=${pg}&include_adult=false&query=${query}`);
+    const result = await api.get(`/search/${type}?language=en-US&page=${pg}&include_adult=false&query=${query}`);
     if (result.data.total_results > 0) {
       this.setState(() => ({ searchResults: result.data.results, searchFound: '' }));
     } else {

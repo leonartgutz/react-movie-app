@@ -8,19 +8,24 @@ class Tv extends Component {
     super(props);
     this.state = {
       shows: [],
+      pg: 1,
+      type: 'airing_today',
     };
 
     this.handleChange = this.handleChange.bind(this);
   }
 
   async componentDidMount() {
-    const result = await api.get('/tv/airing_today?api_key=5879e3f1372f127febbcff25791a647c&language=en-US&page=1');
+    this.getResults(this.state.pg, this.state.type);
+  }
+
+  async getResults(pg, type) {
+    const result = await api.get(`/tv/${type}?language=en-US&page=${pg}`);
     this.setState({ shows: result.data.results });
   }
 
   async handleChange(e) {
-    const result = await api.get(`/tv/${e.target.value}?api_key=5879e3f1372f127febbcff25791a647c&language=en-US&page=1`);
-    this.setState({ shows: result.data.results });
+    this.getResults(this.state.pg, e.target.value);
   }
 
   render() {
