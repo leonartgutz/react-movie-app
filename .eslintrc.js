@@ -25,5 +25,7 @@ module.exports = {
     'react/no-unused-state': 'off',
     'class-methods-use-this': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'react/no-did-update-set-state': 'off',
+    'react/no-access-state-in-setstate': 'off',
   },
 };

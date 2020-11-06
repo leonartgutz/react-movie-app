@@ -1,13 +1,10 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import Routes from './routes';
+import SiteWrapper from './components/SiteWrapper';
 import './sass/styles.scss';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes />
-    </BrowserRouter>
+    <SiteWrapper />
   );
 }
 

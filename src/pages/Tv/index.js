@@ -1,7 +1,6 @@
 /* eslint-disable react/no-access-state-in-setstate */
 import React, { Component } from 'react';
 import { InputLabel, Select, FormControl } from '@material-ui/core';
-import SiteWrapper from '../../components/SiteWrapper';
 import api from '../../services/api';
 
 class Tv extends Component {
@@ -26,8 +25,7 @@ class Tv extends Component {
 
   render() {
     return (
-      <SiteWrapper pageValue={2}>
-
+      <>
         <FormControl variant="outlined" className="search__select--margin">
           <InputLabel htmlFor="outlined-age-native-simple">Category</InputLabel>
           <Select native label="Category" onChange={this.handleChange}>
@@ -53,7 +51,7 @@ class Tv extends Component {
             </div>
           </div>
         ))}
-      </SiteWrapper>
+      </>
     );
   }
 }
